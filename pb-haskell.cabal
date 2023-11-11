@@ -1,0 +1,76 @@
+cabal-version: 2.2
+
+-- This file has been generated from package.yaml by hpack version 0.36.0.
+--
+-- see: https://github.com/sol/hpack
+
+name:           pb-haskell
+version:        0.1.0.0
+description:    Please see the README on Github at <https://github.com/edilmedeiros/pb-haskell#readme>
+homepage:       https://github.com/edilmedeiros/pb-haskell#readme
+bug-reports:    https://github.com/edilmedeiros/pb-haskell/issues
+author:         Edil Medeiros
+maintainer:     jose.edil+pbhaskell@gmail
+copyright:      Edil Medeiros 2023
+license:        BSD-3-Clause
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    CHANGELOG.md
+
+source-repository head
+  type: git
+  location: https://github.com/edilmedeiros/pb-haskell
+
+library
+  exposed-modules:
+      Import
+      Run
+      Types
+      Util
+  other-modules:
+      Paths_pb_haskell
+  autogen-modules:
+      Paths_pb_haskell
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      base >=4.11 && <10
+    , rio >=0.1.12.0
+  default-language: Haskell2010
+
+executable pb-haskell
+  main-is: Main.hs
+  other-modules:
+      Paths_pb_haskell
+  autogen-modules:
+      Paths_pb_haskell
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.11 && <10
+    , optparse-simple
+    , pb-haskell
+    , rio >=0.1.12.0
+  default-language: Haskell2010
+
+test-suite pb-haskell-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      UtilSpec
+      Paths_pb_haskell
+  autogen-modules:
+      Paths_pb_haskell
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.11 && <10
+    , hspec
+    , pb-haskell
+    , rio >=0.1.12.0
+  default-language: Haskell2010
